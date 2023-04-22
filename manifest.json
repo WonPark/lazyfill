@@ -1,0 +1,38 @@
+{    
+
+    "manifest_version": 3,
+    "name": "Lazy Hotkey",
+    "version": "1.0.1",
+    "action": {
+      
+    },
+      
+    "permissions": ["tabs", "activeTab", "clipboardWrite", "clipboardRead"],
+    "host_permissions": ["<all_urls>"],
+    "commands": {
+        "key1" : {
+            "suggested_key": {
+                 "default": "Alt+Shift+E" 
+            },
+            "description": "Fill Text 1"
+        },
+        "key2": {
+            "suggested_key": {
+                "default": "Alt+Shift+L"
+            },
+            "description": "Fill Text 2"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "content_scripts": [
+        {
+          "matches": ["https://*/*" ],
+          "js": [ 
+            "content.js"
+           ]
+        }
+    ]
+}
